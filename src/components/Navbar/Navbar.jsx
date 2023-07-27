@@ -54,7 +54,7 @@ const Navbar = () => {
             </li>
             <li tabIndex={0}>
               <details>
-                <summary>Parent</summary>
+                <summary>Product</summary>
                 <ul className="p-2">
                   <li>
                     <a>Submenu 1</a>
