@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import useTshirts from "../hooks/useTshirts";
 import Product from "./Product";
+import { myContext } from "../../App";
 
 const Products = () => {
-  const [shirts, setShirts] = useTshirts();
+  const [handleAddToCart, cart, shirts] = useContext(myContext);
 
   return (
     <div className="mt-10">
