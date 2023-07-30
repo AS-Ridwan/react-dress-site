@@ -7,6 +7,7 @@ import Cart from "./components/Cart/Cart";
 
 import useTshirts from "./components/hooks/useTshirts";
 import ProductDetails from "./components/Products/ProductDetails";
+import { addToDb } from "./components/Utils/Utils";
 
 export const myContext = createContext();
 
@@ -16,7 +17,7 @@ function App() {
 
   const handleAddToCart = (shirtDetails) => {
     const newCart = [...cart, shirtDetails];
-
+    addToDb(shirtDetails.id);
     setCart(newCart);
   };
   return (
