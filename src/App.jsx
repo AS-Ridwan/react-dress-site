@@ -14,7 +14,7 @@ export const myContext = createContext();
 function App() {
   const [cart, setCart] = useState([]);
   const [shirts, setShirts] = useTshirts();
-  console.log(shirts);
+  // console.log(shirts);
 
   useEffect(() => {
     if (shirts?.products?.length) {
