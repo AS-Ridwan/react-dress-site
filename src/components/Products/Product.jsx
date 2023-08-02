@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 const Product = ({ shirt }) => {
   const { category, title, price, url, id } = shirt;
+  // console.log(shirts);
 
   const navigate = useNavigate();
 
-  const [handleAddToCart] = useContext(myContext);
+  const [handleAddToCart, setShirts] = useContext(myContext);
+
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>

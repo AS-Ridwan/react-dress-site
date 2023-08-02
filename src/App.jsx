@@ -17,7 +17,7 @@ function App() {
   // console.log(shirts);
 
   useEffect(() => {
-    if (shirts?.products?.length) {
+    if (shirts.length) {
       const storedCart = getStoredCart();
       const previousCart = [];
       for (const id in storedCart) {
@@ -37,9 +37,16 @@ function App() {
     addToDb(shirtDetails.id);
     setCart(newCart);
   };
+
+  const addInputValue = (inputValue) => {
+    setShirts([...shirts, { ...inputValue, id: shirts.length + 1 }]);
+  };
+
   return (
     <>
-      <myContext.Provider value={[handleAddToCart, cart, shirts, setShirts]}>
+      <myContext.Provider
+        value={[handleAddToCart, cart, shirts, setShirts, addInputValue]}
+      >
         <Navbar cart={cart}></Navbar>
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>

@@ -104,13 +104,6 @@
       "price": "250",
       "url": "../src/assets/product-15.png",
       "category": "Accessories"
-    },
-    {
-      "id": 16,
-      "title": "ROG Headphone - Model 25",
-      "price": "350",
-      "url": "../src/assets/product-16.png",
-      "category": "Accessories"
     }
   ]
 }

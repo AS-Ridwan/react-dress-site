@@ -5,7 +5,7 @@ const useTshirts = () => {
   useEffect(() => {
     fetch("products.json")
       .then((res) => res.json())
-      .then((data) => setShirts(data));
+      .then((data) => setShirts(data.products));
   }, []);
   return [shirts, setShirts];
 };
