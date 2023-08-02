@@ -38,7 +38,7 @@ const banner = () => {
 
   return (
     <div>
-      <h1>this is banner</h1>
+      <h1>Add or Edit Product!!</h1>
       <form
         onSubmit={handleSubmit}
         action=""
