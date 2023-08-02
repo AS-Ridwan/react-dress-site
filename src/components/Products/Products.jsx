@@ -4,7 +4,8 @@ import Product from "./Product";
 import { myContext } from "../../App";
 
 const Products = () => {
-  const [handleAddToCart, cart, shirts] = useContext(myContext);
+  const [handleAddToCart, handleEdit, cart, shirts, setShirts] =
+    useContext(myContext);
   // console.log(shirts);
 
   return (

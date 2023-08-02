@@ -14,14 +14,15 @@ export const myContext = createContext();
 function App() {
   const [cart, setCart] = useState([]);
   const [shirts, setShirts] = useTshirts();
-  // console.log(shirts);
+  const [editProduct, setEditProduct] = useState(null);
+  // console.log(editProduct);
 
   useEffect(() => {
     if (shirts.length) {
       const storedCart = getStoredCart();
       const previousCart = [];
       for (const id in storedCart) {
-        const foundProduct = shirts?.products.find((s) => s.id == id);
+        const foundProduct = shirts.find((s) => s.id == id);
         if (foundProduct) {
           const quantity = storedCart[id];
           foundProduct.quantity = quantity;
@@ -38,14 +39,35 @@ function App() {
     setCart(newCart);
   };
 
+  const handleEdit = (id) => {
+    const editedItem = shirts.find((s) => s.id == id);
+    setEditProduct(editedItem);
+  };
+
   const addInputValue = (inputValue) => {
     setShirts([...shirts, { ...inputValue, id: shirts.length + 1 }]);
+  };
+
+  const editInputValue = (editValue) => {
+    const index = shirts.findIndex((s) => s.id === editValue.id);
+    const newValue = [...shirts];
+    newValue.splice(index, 1, editValue);
+    setShirts(newValue);
   };
 
   return (
     <>
       <myContext.Provider
-        value={[handleAddToCart, cart, shirts, setShirts, addInputValue]}
+        value={[
+          handleAddToCart,
+          handleEdit,
+          cart,
+          shirts,
+          setShirts,
+          addInputValue,
+          editProduct,
+          editInputValue,
+        ]}
       >
         <Navbar cart={cart}></Navbar>
         <Routes>
